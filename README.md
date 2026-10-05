@@ -13,7 +13,7 @@ Spark and trains regression models to predict city-wide bike traffic.
 | **Score (chronological hold-out week)** | **R² = 0.95**, MAE ≈ 1,350 bikes/h, **−33 % RMSE vs. seasonal-naive baseline** |
 | **Context** | CPE Lyon Big Data project, team of 5 (Dec 2025 – Jan 2026). I built the whole ML pipeline (notebooks `01`–`06`) and the temporal validation. |
 
-![Predictions vs actual](figures/gbt_predictions_vs_actual.png)
+![Hold-out week: predicted vs actual bike traffic](figures/holdout_week.png)
 
 ## Key findings
 

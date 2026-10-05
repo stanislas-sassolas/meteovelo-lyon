@@ -56,6 +56,22 @@ def main():
     importances = pd.Series(model.feature_importances_, index=FEATURES)
     print("\nFeature importance:\n" + importances.sort_values(ascending=False).round(3).to_string())
 
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    fig, ax = plt.subplots(figsize=(11, 4))
+    ax.plot(test.index, test["nb_velos"], color="#1c1b19", lw=1.6, label="Actual")
+    ax.plot(test.index, pred, color="#0f766e", lw=1.6, ls="--", label="Predicted (GBT)")
+    ax.set_title(f"Hold-out week, 23–29 April 2022 — R² = {rows['Gradient Boosting']['R2']:.2f}")
+    ax.set_ylabel("Bikes per hour (all counters)")
+    ax.grid(alpha=0.3)
+    ax.legend(frameon=False)
+    for side in ("top", "right"):
+        ax.spines[side].set_visible(False)
+    fig.tight_layout()
+    fig.savefig(ROOT / "figures" / "holdout_week.png", dpi=130)
+
 
 if __name__ == "__main__":
     main()
