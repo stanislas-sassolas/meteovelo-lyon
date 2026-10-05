@@ -1,0 +1,8 @@
+pyspark>=3.5
+pandas>=2.0
+numpy
+matplotlib
+seaborn
+scikit-learn>=1.4
+requests
+jupyterlab
